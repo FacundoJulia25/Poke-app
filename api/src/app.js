@@ -31,5 +31,5 @@ server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   console.error(err);
   res.status(status).send(message);
 });
-
+server.listen(3000 , 'localhost', ()=>console.log('listening on port 3000'))
 module.exports = server;
