@@ -113,24 +113,25 @@ const getPokemonByName = async (name) => {
 // Crea un pokemon en la base de datos relacionado con sus tipos.
 
 const postPokemon = async (id, name, life_points, attack, defense, speed, height, weight, types) => {
-    if (id, name, life_points, attack, defense, speed, height, weight, types) {
-        await Pokemon.findOrCreate({
-            id,
-            name,
-            life_points,
-            attack,
-            defense,
-            speed,
-            height,
-            weight,
-
-        }).then(pokemon => {
-            pokemon.addTypes(types)
-            return console.log('Ok')
-        })
-    }
+    console.log(id, name, life_points, attack, defense, speed, height, weight, types)
+    console.log(name)
+    if (name)
+        try {
+            await Pokemon.create({
+                id,
+                name,
+                life_points,
+                attack,
+                defense,
+                speed,
+                height,
+                weight,
+            }).then(pokemon => pokemon.addTypes(types))
+        } catch (e) {
+            console.log(e)
+        }
     else {
-        throw new Error('No se ingresó la cantidad de datos correspondiente')
+        return console.log('falta algun dato')
     }
 }
 // [ ] GET /types:
@@ -140,7 +141,7 @@ const getTypes = async () => {
     let types = await Type.findAll()
     if (!types.length) {
         let request = await axios.get('https://pokeapi.co/api/v2/type')
-        console.log(request)
+        // console.log(request)
         let types = await request.data.results.map(t => { return { name: t.name } })
         await Type.bulkCreate(types, {
             returning: true
@@ -151,7 +152,7 @@ const getTypes = async () => {
         return types
     }
 }
-getTypes()
+// getTypes()
 // Únicos Endpoints/Flags que pueden utilizar
 // GET https://pokeapi.co/api/v2/pokemon
 // GET https://pokeapi.co/api/v2/pokemon/{id}
