@@ -11,7 +11,9 @@ const getApi = async () => {
         const apiPokes40 = await axios.get(apiPokes20.data.next)
         const apiPokes = await apiPokes20.data.results.concat(apiPokes40.data.results)
         const requests = await apiPokes.map(p => axios.get(p.url))// we got all de requests in variable 'requests'
+
         // console.log(requests)
+
         const pokeResponse = await axios.all(requests)
             .then(data => data.map((p) => {
                 const pokemon = {
@@ -112,13 +114,13 @@ const getPokemonByName = async (name) => {
 // Recibe los datos recolectados desde el formulario controlado de la ruta de creación de pokemons por body
 // Crea un pokemon en la base de datos relacionado con sus tipos.
 
-const postPokemon = async (id, name, life_points, attack, defense, speed, height, weight, types) => {
-    console.log(id, name, life_points, attack, defense, speed, height, weight, types)
+const postPokemon = async (name, life_points, attack, defense, speed, height, weight, types) => {
+    console.log(name, life_points, attack, defense, speed, height, weight, types)
     console.log(name)
     if (name)
         try {
-            await Pokemon.create({
-                id,
+            const newPoke = await Pokemon.create({
+                id:1001,
                 name,
                 life_points,
                 attack,
@@ -126,7 +128,15 @@ const postPokemon = async (id, name, life_points, attack, defense, speed, height
                 speed,
                 height,
                 weight,
-            }).then(pokemon => pokemon.addTypes(types))
+            })
+            //.then(pokemon => pokemon.addTypes(types))
+            const type = await Type.findAll({
+                where:{
+                    name:types
+                }
+            })
+            console.log("el type es ",type);
+            newPoke.addTypes(type)
         } catch (e) {
             console.log(e)
         }

@@ -22,7 +22,7 @@ router.get('/pokemons', async (req, res) => {
     }
     try {
         let pokemons = await getApi()
-        if (pokemons) res.status(200).send(pokemons)
+        if (pokemons) res.json(pokemons)
         else res.status(404).send('Error: No se pudieron cargar los pokemones')
     } catch (error) {
         console.log(error)
@@ -54,10 +54,11 @@ router.get('/types', async (req, res) => {
 })
 router.post('/pokemons', async (req, res) => {
     try {
-        const { id, name, life_points, attack, defense, speed, height, weight, types } = req.body
-        console.log(id, name, life_points, attack, defense, speed, height, weight, types)
+        const { name, life_points, attack, defense, speed, height, weight, types } = req.body
 
-        await postPokemon(null, name, life_points, attack, defense, speed, height, weight, types)
+        console.log( name, life_points, attack, defense, speed, height, weight, types)
+
+        await postPokemon(name, life_points, attack, defense, speed, height, weight, types)
         res.status(200).send('Pokemon creado con éxito')
     } catch (error) {
         console.log(error)
