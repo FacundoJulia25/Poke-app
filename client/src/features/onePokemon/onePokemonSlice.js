@@ -11,9 +11,9 @@ import axios from "axios";
 //realizar el llamado a la api.
 
 
-const getPokemons = createAsyncThunk('pokemons/getPokemons',()=>{
-    return axios.get('http://localhost:3001/pokemons')
-        .then(response=>response.data.map(pokemon=>pokemon))
+const getOnePokemon = createAsyncThunk('pokemons/getOnePokemon',(name)=>{
+    return axios.get(`http://localhost:3001/pokemons?name=${name}`)
+        .then(response=>response.data)
 })
 
 
@@ -23,7 +23,7 @@ const getPokemons = createAsyncThunk('pokemons/getPokemons',()=>{
 
 const initialState = {
     loading:false,
-    pokemons:[],
+    pokemon:{},
     error:'',
 }
 
@@ -34,20 +34,20 @@ const initialState = {
 //usando el builder agregaremos casos
 //por cada uno de los casos 
 //por cada uno de los casos
-export const pokemonsSlice = createSlice({
-        name:'pokemons',
+export const onePokemonSlice = createSlice({
+        name:'onePokemon',
         initialState,
-        extraReducers: builder => {  
-            builder.addCase(getPokemons.pending, state =>{
+        extraReducers: builder  => {  
+            builder.addCase(getOnePokemon.pending, state =>{
                 state.loading = true
             })
-            builder.addCase(getPokemons.fulfilled,(state, action)=>{
+            builder.addCase(getOnePokemon.fulfilled,(state, action)=>{
                 state.loading = false
-                state.pokemons = action.payload
+                state.pokemon = action.payload
                 state.error = ''
             }) 
-            builder.addCase(getPokemons.rejected, (state, action)=>{
-                state.pokemons = []
+            builder.addCase(getOnePokemon.rejected, (state, action)=>{
+                state.pokemon = {}
                 state.error=action.error.message
             })            
             
@@ -55,6 +55,6 @@ export const pokemonsSlice = createSlice({
         })
 
 
-export const getAllPokemons = getPokemons
-export default pokemonsSlice.reducer // este ".reducer" permite exportar solo los reducers
+export const getNamePokemon = getOnePokemon
+export default onePokemonSlice.reducer // este ".reducer" permite exportar solo los reducers
                                      //al exportar por defecto.

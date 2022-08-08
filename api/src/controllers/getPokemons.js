@@ -1,6 +1,7 @@
 
 const axios = require('axios').default;
 const { Pokemon, Type } = require('../db.js')
+
 // [ ] GET /pokemons:
 // Obtener un listado de los pokemons desde pokeapi.
 // Debe devolver solo los datos necesarios para la ruta principal
@@ -25,7 +26,8 @@ const getApi = async () => {
                     speed: p.data.stats[5].base_stat,
                     height: p.data.height,
                     weight: p.data.weight,
-                    img: p.data.sprites.other.home.front_default
+                    img: p.data.sprites.other.home.front_default,
+                    types:p.data.types.map(t=>`${t.type.name} `)
                 }
                 return pokemon
             }))
@@ -90,7 +92,8 @@ const getPokemonByName = async (name) => {
                 speed: data.data.stats[5].base_stat,
                 height: data.data.height,
                 weight: data.data.weight,
-                img: data.data.sprites.other.home.front_default
+                img: data.data.sprites.other.home.front_default,
+                types:data.data.types.map(t=>`${t.type.name} `)
             }
             return pokemon
         })
