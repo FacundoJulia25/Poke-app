@@ -14,7 +14,7 @@ const getApi = async () => {
         const requests = await apiPokes.map(p => axios.get(p.url))// we got all de requests in variable 'requests'
 
         // console.log(requests)
-
+        const pokemonesDb = await getDb()
         const pokeResponse = await axios.all(requests)
             .then(data => data.map((p) => {
                 const pokemon = {
@@ -27,11 +27,12 @@ const getApi = async () => {
                     height: p.data.height,
                     weight: p.data.weight,
                     img: p.data.sprites.other.home.front_default,
-                    types:p.data.types.map(t=>`${t.type.name} `)
+                    types: p.data.types.map(t => `${t.type.name} `)
                 }
                 return pokemon
             }))
-        return pokeResponse
+        let pokemonAll = pokeResponse.concat(pokemonesDb)
+        return pokemonAll
     } catch (e) {
         console.log(e)
     }
@@ -40,18 +41,29 @@ const getApi = async () => {
 
 const getDb = async (name) => {//create a function that will take us 
     if (name) {               //all the db pokemons.
-        const condition = name
-            ? { where: { name: name } }
-            : {}
-        const pokemons = await Pokemon.findAll(condition);
+        const pokemons = await Pokemon.findAll({
+            where: { name: name },
+            include: { model: Type, as: 'types' }
+        });
         if (pokemons.length > 0) {
+
             return pokemons
         } else {
             throw new Error(`We couldn't find that pokemon :(`)
         }
     } else {
-        const pokemons = await Pokemon.findAll()
-        return pokemons
+        const pokemons = await Pokemon.findAll({
+            include: 
+            { model: Type,
+            attributes:['name']}
+        })
+
+        let pokemones= await pokemons.map(p=>{
+            return{
+                ...p.dataValues,
+                types: p.Types.map(p=>{return `${p.name} `})
+            }})
+        return pokemones
     }
 };
 // [ ] GET /pokemons/{idPokemon}:
@@ -93,7 +105,7 @@ const getPokemonByName = async (name) => {
                 height: data.data.height,
                 weight: data.data.weight,
                 img: data.data.sprites.other.home.front_default,
-                types:data.data.types.map(t=>`${t.type.name} `)
+                types: data.data.types.map(t => `${t.type.name} `)
             }
             return pokemon
         })
@@ -116,14 +128,20 @@ const getPokemonByName = async (name) => {
 // [ ] POST /pokemons:
 // Recibe los datos recolectados desde el formulario controlado de la ruta de creación de pokemons por body
 // Crea un pokemon en la base de datos relacionado con sus tipos.
-
+let pkdb = async () => {
+    Pokemon.findAll({
+        includes: {
+            model: Type,
+            name: 'fire'
+        }
+    })
+}
 const postPokemon = async (name, life_points, attack, defense, speed, height, weight, types) => {
     console.log(name, life_points, attack, defense, speed, height, weight, types)
-    console.log(name)
+    console.log('los types son:', types)
     if (name)
         try {
-            const newPoke = await Pokemon.create({
-                id:1001,
+            let pokemon = await Pokemon.create({
                 name,
                 life_points,
                 attack,
@@ -132,20 +150,21 @@ const postPokemon = async (name, life_points, attack, defense, speed, height, we
                 height,
                 weight,
             })
-            //.then(pokemon => pokemon.addTypes(types))
-            const type = await Type.findAll({
-                where:{
-                    name:types
+            let tipos = await Type.findAll({
+                where: {
+                    name: types
                 }
             })
-            console.log("el type es ",type);
-            newPoke.addTypes(type)
+            console.log("el type es ", tipos)
+            console.log("el pokemon es", pokemon)
+            await pokemon.addTypes(tipos)
+
         } catch (e) {
-            console.log(e)
-        }
+    console.log(e)
+}
     else {
-        return console.log('falta algun dato')
-    }
+    return console.log('falta algun dato')
+}
 }
 // [ ] GET /types:
 // Obtener todos los tipos de pokemons posibles

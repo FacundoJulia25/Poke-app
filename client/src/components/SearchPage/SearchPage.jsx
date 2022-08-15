@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Pokemon from '../Pokemon/Pokemon';
 import {  useParams } from "react-router-dom";
 import { getNamePokemon } from '../../features/onePokemon/onePokemonSlice';
+import NavBar from '../NavBar/NavBar';
 
 function SearchPage() {
     const pokemon = useSelector(state => state.onePokemon)
@@ -16,6 +17,7 @@ function SearchPage() {
     if (pokemon.pokemon.name){
         return (
             <div>
+                <NavBar />
                 <Pokemon img={pokemon.pokemon.img} name={pokemon.pokemon.name} types={pokemon.pokemon.types} />
             </div>
         )

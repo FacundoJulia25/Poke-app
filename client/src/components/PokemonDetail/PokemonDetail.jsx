@@ -1,8 +1,8 @@
 import './PokemonDetail.css'
-import { Link,  useParams } from "react-router-dom";
-import React, { useEffect } from 'react'
+import {  useParams } from "react-router-dom";
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getNamePokemon } from '../../features/onePokemon/onePokemonSlice';
+import NavBar from "../NavBar/NavBar";
 
 function PokemonDetail() {
     let { name } = useParams()
@@ -16,7 +16,9 @@ function PokemonDetail() {
     if(!miPoke){
         console.log('este es el clg de afuera ',onePokemon);
         return (
+
             <div>
+                <NavBar />
                 <img src={onePokemon.pokemon.img} alt={`img ${name}`} />
                 <h1>Name: {onePokemon.pokemon.name}</h1>
                 <h2>Types: {onePokemon.pokemon.types}</h2>
@@ -32,6 +34,7 @@ function PokemonDetail() {
     }
     return (
         <div>
+            <NavBar />
             <img src={miPoke.img} alt={`img ${name}`} />
             <h1>Name: {miPoke.name}</h1>
             <h2>Types: {miPoke.types}</h2>

@@ -7,5 +7,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         }
-    });
+    }, {
+        timestamps: true,
+        createdAt: false, // don't add createdAt attribute
+        updatedAt: true,
+    }
+    );
 }

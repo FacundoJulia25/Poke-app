@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser');
 const { Router } = require('express');
 const { getApi, getDb, getOnePokemon, getPokemonByName, getTypes, postPokemon } = require('../controllers/getPokemons.js')
 const { axios } = require('axios').default

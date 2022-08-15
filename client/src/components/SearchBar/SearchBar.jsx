@@ -6,14 +6,13 @@ import { getNamePokemon } from "../../features/onePokemon/onePokemonSlice";
 
 function SearchBar() {
     const [name, setName] = useState("");
-    const dispatch = useDispatch()
     const handleChange = (e) => {
         setName(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        
     };
 
     return (
@@ -23,9 +22,9 @@ function SearchBar() {
                     <input
                         onChange={(e) => handleChange(e)}
                         type="text"
-                        placeholder="ej scizor..."
+                        placeholder="ej Makuhita..."
                     />
-                    <Link to={`/pokemons/search/${name}`}>
+                    <Link to={`/pokemons/search/${name.toLowerCase()}`}>
                         <button type="submit">
                             🔎
                         </button>

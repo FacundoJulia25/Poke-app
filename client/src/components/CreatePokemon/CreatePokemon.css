@@ -1,0 +1,27 @@
+.createPokemon {
+    margin: auto;
+    font-size: 25px;
+    
+}
+
+.formItem {
+    display: flexbox;
+    align-content: left;
+    padding: 15px;
+    display: block;
+}
+.required{
+    font-size: 15px;
+    color: red;
+    position: relative;
+    margin: auto;
+}
+.formItem input{
+    width: 100px;
+}
+/* select{
+    margin: auto;
+    padding: 10px;
+    width: 100px;
+    height: 3px;
+} */
