@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import './Home.css'
+import myGif from '../assets/loading.gif'
 import { useDispatch, useSelector } from "react-redux"; // funciones para ejecucion de funcion en el estado
 import { getAllPokemons, sortAsc, filterBy } from "../../features/homePokemonsSlice/pokemonsSlice";
 import { getTypesP } from "../../features/typesPokemons/typesPokemonsSlice";
 import { Link } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
 import NavBar from "../NavBar/NavBar";
 import Pagination from "../Pagination/Pagination";
 export default function Home() {
@@ -89,7 +90,7 @@ export default function Home() {
   }
   if (allPokemons.length > 0 && allTypes.types.length > 0) {
     return (
-      <div key={'Home'}>
+      <div key={'Home'} className="home-container">
         <NavBar />
         <label htmlFor="sort-select">Sort By:</label>
         <select value={sortBy} onChange={(e) => handleSort(e)}>
@@ -112,7 +113,7 @@ export default function Home() {
           <option value='api'>Api Pokemons</option>
           <option value={''}>All</option>
         </select>
-        <div className="homePokemons">
+        <div className="home-pokemons">
           <Pagination currentPage={currentPage + 1} pokemones={pagePokemons} prevHandler={prevHandler} nextHandler={nextHandler} />
         </div>
 
@@ -120,7 +121,11 @@ export default function Home() {
     )
   } else {
     return (
-      <h1>Se están cargando</h1>
+      <div>
+        <img style={{width: '70vw'}} src={myGif} alt="loading" />
+        
+      </div>
+      
     )
   }
 }

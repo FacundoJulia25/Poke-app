@@ -111,11 +111,15 @@ const getPokemonByName = async (name) => {
         })
         if (pokemonBuscado) return pokemonBuscado
         else {
-            let pokemonsDb = await getDb() //traemos los de la db
+            let pokemonDb = await Pokemon.findOne({
+                where:{
+                    name:name.toLowerCase()
+                }
+            })
+            //await getDb() //traemos los de la db
             //console.log(pokemonsDb)
-            let pokemonBuscado = pokemonsDb.find(p => p.name.toLowerCase() == name.toLowerCase())
-            if (pokemonBuscado) {
-                return pokemonBuscado
+            if (pokemonDb) {
+                return pokemonDb
             } else {
                 throw new Error(`No se encontró pokemones con el nombre ${name}`)
             }
@@ -136,8 +140,8 @@ let pkdb = async () => {
         }
     })
 }
-const postPokemon = async (name, life_points, attack, defense, speed, height, weight, types) => {
-    console.log(name, life_points, attack, defense, speed, height, weight, types)
+const postPokemon = async (name, life_points, attack, defense, speed, height, weight, img, types) => {
+    console.log(name, life_points, attack, defense, speed, height, weight, img , types)
     console.log('los types son:', types)
     if (name)
         try {
@@ -149,6 +153,7 @@ const postPokemon = async (name, life_points, attack, defense, speed, height, we
                 speed,
                 height,
                 weight,
+                img,
             })
             let tipos = await Type.findAll({
                 where: {

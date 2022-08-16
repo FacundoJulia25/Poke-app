@@ -3,6 +3,7 @@ import {  useParams } from "react-router-dom";
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from "../NavBar/NavBar";
+import { useEffect } from 'react';
 
 function PokemonDetail() {
     let { name } = useParams()

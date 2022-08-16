@@ -36,6 +36,10 @@ module.exports = (sequelize) => {
     weight:{
       type: DataTypes.INTEGER
     },
+    img:{
+      type:DataTypes.STRING,
+      defaultValue:'https://i0.wp.com/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png?resize=738%2C320&ssl=1'
+    },
   },
   {timestamps: true,
     createdAt: false, // don't add createdAt attribute

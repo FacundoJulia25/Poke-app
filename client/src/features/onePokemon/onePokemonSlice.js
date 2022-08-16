@@ -37,6 +37,12 @@ const initialState = {
 export const onePokemonSlice = createSlice({
         name:'onePokemon',
         initialState,
+        reducers:{   
+            clearSearchedPokemon:(state, action)=>{
+                if(state.pokemon!=={})
+                state.pokemon={}
+            }
+        },
         extraReducers: builder  => {  
             builder.addCase(getOnePokemon.pending, state =>{
                 state.loading = true
@@ -54,7 +60,7 @@ export const onePokemonSlice = createSlice({
         }
         })
 
-
+export const clearSearchedPokemon = onePokemonSlice.actions.clearSearchedPokemon
 export const getNamePokemon = getOnePokemon
 export default onePokemonSlice.reducer // este ".reducer" permite exportar solo los reducers
                                      //al exportar por defecto.

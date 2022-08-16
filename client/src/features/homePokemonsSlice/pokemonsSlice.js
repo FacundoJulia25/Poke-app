@@ -62,10 +62,6 @@ export const pokemonsSlice = createSlice({
                 }
             }
         },
-        goNext: (state, action) => {
-            //action.currentPage
-
-        }
     },
     extraReducers: builder => {
         builder.addCase(getPokemons.pending, state => {

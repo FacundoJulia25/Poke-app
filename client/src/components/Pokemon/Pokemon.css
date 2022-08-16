@@ -1,0 +1,30 @@
+.pokemonCard {
+    flex-direction: column;
+    font-family: 'FjallaOne', sans-serif;
+    display: flex;
+}
+/* pokemon, planta, agua, electrico, fairy, normal, ground */
+ /* fire: https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg?w=2000 */
+ /* planta: https://images.pexels.com/photos/122429/leaf-nature-green-spring-122429.jpeg?cs=srgb&dl=pexels-pixabay-122429.jpg&fm=jpg */
+
+    .cardImage {
+    position: relative;
+    border-radius: 5% 5% 0 0;
+    background-image: url('https://a-static.besthdwallpaper.com/sol-en-la-superficie-del-agua-papel-pintado-2560x1600-12526_7.jpg');
+    background-size: cover;
+}
+.nameCardPokemon{
+    color: black;
+    background-color: rgb(169, 174, 180);
+    text-decoration: none;
+}
+.linksPokemons{
+    color: black;
+    font-size: 4vh;
+    font-family: 'Fjalla One', sans-serif;
+    text-decoration: none;
+}
+.typesPokemons{
+    background-color: rgb(152, 152, 152);
+    border-radius: 0 0 15px 15px ;
+}

@@ -2,18 +2,20 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Pokemon from '../Pokemon/Pokemon';
 import {  useParams } from "react-router-dom";
-import { getNamePokemon } from '../../features/onePokemon/onePokemonSlice';
+import { clearSearchedPokemon, getNamePokemon } from '../../features/onePokemon/onePokemonSlice';
 import NavBar from '../NavBar/NavBar';
 
 function SearchPage() {
-    const pokemon = useSelector(state => state.onePokemon)
+    let pokemon = useSelector(state => state.onePokemon)
     let dispatch = useDispatch()
     let { name } = useParams()
     console.log(pokemon)
+    console.log(pokemon);
+    
     useEffect(() => {
+        dispatch(clearSearchedPokemon())
         dispatch(getNamePokemon(name))
     }, [])
-    console.log(pokemon);
     if (pokemon.pokemon.name){
         return (
             <div>
