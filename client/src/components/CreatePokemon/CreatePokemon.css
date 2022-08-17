@@ -1,11 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .createPokemon {
+    width:100vw;
+    height: 100vh;
     margin: auto;
-    font-size: 25px;
-    
+    font-size: 30px;
+    background-color: red;
+    background-image: url('../assets/createPk.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.createPokemon .nav{
+    position: relative;
+}
+.createPokemon .formCreate{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 2.5rem;  
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    width: 40%;
+    height: 60%;
+    background-color: rgba(250, 235, 215, 0.494);
+    margin: auto;
+padding: 50px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction:column;
+    justify-content: left;
+}
+.formDiv{
+    padding: 50px;
+    width: 80%;
+    height: 80%;
+    margin: auto auto 0 auto;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: flex-end;
+}
+.formDiv label input{
+    align-items: right;
+    width: 300px;
+    height: 2.5rem;
+    font-size: 2rem;
+}
+.formDiv label{
+    display: relative;
+    margin-right: 50px;
+    display: flex;
+    justify-content: right;
+}
+.formDiv label select{
+    align-items: right;
+    width: 300px;
+    height: 2.9rem;
+    font-size: 20px;
 }
 
-.formItem {
-    display: flexbox;
+.createPkSubmit{
+    filter: brightness(2);
+    font-size: 2rem;
+    font-weight: 600;
+    color: White;
+    background-color: rgba(27, 255, 255, 0.76);
+    border-radius: 10px;
+    position: absolute;
+    margin-top: 40%;
+    margin-left:-6.6%;
+    width: 45.4%;
+    height: 80px;
+}
+.required{
+    color: rgb(255, 56, 56);
+    opacity:0.9 ;
+    font-size: 20px;
+    align-content: flex-start;
+}
+/* .formItem {
     align-content: left;
     padding: 15px;
     display: block;
@@ -19,9 +92,9 @@
 .formItem input{
     width: 100px;
 }
-/* select{
+select{
     margin: auto;
     padding: 10px;
     width: 100px;
     height: 3px;
-} */
+}} */

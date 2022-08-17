@@ -92,40 +92,38 @@ export default function Home() {
     return (
       <div key={'Home'} className="home-container">
         <NavBar />
-        <label htmlFor="sort-select">Sort By:</label>
-        <select value={sortBy} onChange={(e) => handleSort(e)}>
-          <option value={'descendente'}>▽ - Descendent</option>)
-          <option value='ascendente'>△ - Ascendent</option>
-          <option value={''}>Todos</option>
-        </select>
-
-        <label htmlFor="type-select">Choose a Type:</label>
-        <select value={filters.type} onChange={(e) => handleTypeOnChange(e)}>
-          <option value={''}>ALL</option>
-          {allTypes.types.map(t => <option value={t.name}>{t.name.toUpperCase()}</option>)}
-        </select>
-
-        <Link to={'/createPokemon'}><button>CREAR</button></Link>
-
-        <label htmlFor="origin-select">Choose an option:</label>
-        <select value={filters.created} onChange={(e) => handleOriginOnChange(e)}>
-          <option value={'dB'}>Created</option>)
-          <option value='api'>Api Pokemons</option>
-          <option value={''}>All</option>
-        </select>
+        <div className="selectores">
+          <label htmlFor="sort-select">Sort By:</label>
+          <select value={sortBy} onChange={(e) => handleSort(e)}>
+            <option value={'descendente'}>▽ - Descendent</option>
+            <option value={'ascendente'}>△ - Ascendent</option>
+            <option value={'za'}>Z - A</option>
+            <option value={'az'}>A - Z</option>
+            <option value={''}>ALL</option>
+          </select>
+          <label htmlFor="type-select">Choose a Type:</label>
+          <select value={filters.type} onChange={(e) => handleTypeOnChange(e)}>
+            <option value={''}>ALL</option>
+            {allTypes.types.map(t => <option value={t.name}>{t.name.toUpperCase()}</option>)}
+          </select>
+          <label htmlFor="origin-select">Choose an option:</label>
+          <select value={filters.created} onChange={(e) => handleOriginOnChange(e)}>
+            <option value={'dB'}>Created</option>)
+            <option value='api'>Api Pokemons</option>
+            <option value={''}>ALL</option>
+          </select>
+        </div>
         <div className="home-pokemons">
-          <Pagination currentPage={currentPage + 1} pokemones={pagePokemons} prevHandler={prevHandler} nextHandler={nextHandler} />
+          <Pagination totalPokemons={filteredPokemons.length} currentPage={currentPage + 1} pokemones={pagePokemons} prevHandler={prevHandler} nextHandler={nextHandler} />
         </div>
 
       </div>
     )
   } else {
     return (
-      <div>
-        <img style={{width: '70vw'}} src={myGif} alt="loading" />
-        
+      <div className="loadingContainer">
+        <img className="homeLoading" style={{ width: '70vw' }} src={myGif} alt="loading" />
       </div>
-      
     )
   }
 }

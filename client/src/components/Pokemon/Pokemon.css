@@ -2,6 +2,10 @@
     flex-direction: column;
     font-family: 'FjallaOne', sans-serif;
     display: flex;
+    margin: 10px;
+    box-shadow: rgb(70, 64, 64) 3px 3px 3px;
+    box-sizing: border-box;
+    border-radius: 5%;
 }
 /* pokemon, planta, agua, electrico, fairy, normal, ground */
  /* fire: https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg?w=2000 */
@@ -12,10 +16,39 @@
     border-radius: 5% 5% 0 0;
     background-image: url('https://a-static.besthdwallpaper.com/sol-en-la-superficie-del-agua-papel-pintado-2560x1600-12526_7.jpg');
     background-size: cover;
+    filter:brightness(1.1);
+}
+.fire{
+    background-image: url('https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg?w=2000');
+
+}
+.bug{
+    background-image: url('https://images.pexels.com/photos/122429/leaf-nature-green-spring-122429.jpeg?cs=srgb&dl=pexels-pixabay-122429.jpg&fm=jpg');
+}
+.grass{
+    background-image: url('https://c1b22854b6.cbaul-cdnwnd.com/3e8961ad0ae5718505965a03d46cb141/200000042-394c9394cd/fondo%20plantas%203.jpg?ph=c1b22854b6');
+}
+.ground{
+    background-image: url('https://img.freepik.com/fotos-premium/fondo-textura-tierra-concepto-jardineria_23-2148198718.jpg');
+}
+.flying{
+    background-image: url( 'https://img.freepik.com/premium-vector/doodle-wind-gust-isolated-white-background-hand-drawn-vector-illustration_36380-803.jpg?w=2000');
+}
+.normal{
+    background-image: url('https://static.vecteezy.com/system/resources/previews/001/630/865/non_2x/elegant-silver-metallic-background-free-vector.jpg');
+}
+.electric{
+    background-image: url('https://i.ytimg.com/vi/GRHONDlbclM/maxresdefault.jpg');
+}
+.poison{
+    background-image: url('https://i.pinimg.com/originals/a4/bd/07/a4bd0728319084bbe79ecab9be68c2f9.jpg');
+}
+.fairy{
+    background-image: url('https://thumbs.dreamstime.com/b/magia-de-fantas%C3%ADa-part%C3%ADculas-estrella-t%C3%BAnel-ilustraci%C3%B3n-d-fondo-art%C3%ADstica-brillantes-rosa-espacio-k-uhd-vfx-pantalla-arte-203808587.jpg');
 }
 .nameCardPokemon{
     color: black;
-    background-color: rgb(169, 174, 180);
+    background-color: rgb(255, 255, 255);
     text-decoration: none;
 }
 .linksPokemons{

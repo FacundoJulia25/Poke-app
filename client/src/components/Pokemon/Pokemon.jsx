@@ -4,13 +4,17 @@ import './Pokemon.css'
 
 function Pokemon(props) {
     const { img, name, types } = props;
-    let elemento = ''
-    // if()
-
-
+    console.log(types)
+    let elemento;
+    if(types[0] ==='normal ' && types[1]){
+        elemento = types[1]
+    }else{
+        elemento = types[0]
+    }
+    console.log(elemento);
     return (
         <div className="pokemonCard">
-            <img className="cardImage" src={img} alt={name} />
+            <img className={`cardImage ${elemento}`} src={img} alt={name} />
             <h1 className="nameCardPokemon">
                 <Link className="linksPokemons" to={`/pokemons/${name.toLowerCase()}`}>
                     {name.toUpperCase()}

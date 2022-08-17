@@ -116,62 +116,65 @@ function CreatePokemon() {
 
     return (
         <div className='createPokemon'>
+            <div className='nav'>
             <NavBar />
-            <Link to={'/home'}><button>home xd</button></Link>
-            <form action="post" ref={submitParaReset} onSubmit={(e) => handleSubmit(e)}>
-                <p className='required'>{errors.name}</p>
-                <label htmlFor="name" className='formItem'>
-                    Name: <input name='name' key={'LabelName'} type="text" maxLength={15} onChange={(e) => { handleOnChange(e) }} />
-                </label>
-                <p className='required'>{errors.life_points}</p>
-                <label htmlFor="lp" className='formItem'>
-                    Life Points: <input name='life_points' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
-                </label>
-                <p className='required'>{errors.attack}</p>
-                <label htmlFor="attk" className='formItem'>
-                    Attack: <input name='attack' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
-                </label>
-                <p className='required'>{errors.defense}</p>
-                <label htmlFor="dfns" className='formItem'>
-                    Defense: <input name='defense' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
-                </label>
-                <p className='required'>{errors.speed}</p>
-                <label htmlFor="speed" className='formItem'>
-                    Speed: <input name='speed' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
-                </label>
-                <p className='required'>{errors.height}</p>
-                <label htmlFor="hght" className='formItem' >
-                    Height (cm):<input name='height' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
-                </label>
-                <p className='required'>{errors.weight}</p>
-                <label htmlFor="wght" className='formItem' >
-                    Weight (lbs): <input name='weight' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
-                </label>
-                <p className='required'>{errors.types}</p>
-                <label htmlFor="types">
-                    Elige Tipo 1: <select name="type1" id="type1" value={pokemon.types[0]} onChange={selectOnChange}>
-                        <option name='Default' value=''>- select type -</option>
-                        {allTypes.map(type => {
-                            return (
-                                <option value={type.name}>{type.name.toUpperCase()}</option>
-                            )
-                        })
-                        }
-                    </select>
-                </label>
-                <label htmlFor="types2">
-                    (Opcional)Elije tipo 2
-                    <select name="type2" id="type2" value={pokemon.types[1]} onChange={selectOnChange}>
-                        <option name='Default' value=''>- select type -</option>
-                        {
-                            allTypes.map(type => {
+            </div>
+            <form className='formCreate' action="post" ref={submitParaReset} onSubmit={(e) => handleSubmit(e)}>
+                <div className='formDiv'>
+                    <p className='required'>{errors.name}</p>
+                    <label htmlFor="name" className='formItem'>
+                        Name: <input name='name' key={'LabelName'} type="text" maxLength={15} onChange={(e) => { handleOnChange(e) }} />
+                    </label>
+                    <p className='required'>{errors.life_points}</p>
+                    <label htmlFor="lp" className='formItem'>
+                        Life Points: <input name='life_points' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
+                    </label>
+                    <p className='required'>{errors.attack}</p>
+                    <label htmlFor="attk" className='formItem'>
+                        Attack: <input name='attack' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
+                    </label>
+                    <p className='required'>{errors.defense}</p>
+                    <label htmlFor="dfns" className='formItem'>
+                        Defense: <input name='defense' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
+                    </label>
+                    <p className='required'>{errors.speed}</p>
+                    <label htmlFor="speed" className='formItem'>
+                        Speed: <input name='speed' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
+                    </label>
+                    <p className='required'>{errors.height}</p>
+                    <label htmlFor="hght" className='formItem' >
+                        Height (cm):<input name='height' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
+                    </label>
+                    <p className='required'>{errors.weight}</p>
+                    <label htmlFor="wght" className='formItem' >
+                        Weight (lbs): <input name='weight' type='number' max={255} min={1} onChange={(e) => { handleOnChange(e) }} />
+                    </label>
+                    <p className='required'>{errors.types}</p>
+                    <label htmlFor="types">
+                        Elige Tipo 1: <select name="type1" id="type1" value={pokemon.types[0]} onChange={selectOnChange}>
+                            <option name='Default' value=''>- select type -</option>
+                            {allTypes.map(type => {
                                 return (
                                     <option value={type.name}>{type.name.toUpperCase()}</option>
                                 )
                             })
-                        }</select>
-                </label>
-                <input type="submit" value='submit' />
+                            }
+                        </select>
+                    </label>
+                    <label htmlFor="types2">
+                        Elije tipo 2:
+                        <select name="type2" id="type2" value={pokemon.types[1]} onChange={selectOnChange}>
+                            <option name='Default' value=''>- select type -</option>
+                            {
+                                allTypes.map(type => {
+                                    return (
+                                        <option value={type.name}>{type.name.toUpperCase()}</option>
+                                    )
+                                })
+                            }</select>
+                    </label>
+                    <input className='createPkSubmit' type="submit" value='CREATE' />
+                </div>
             </form>
         </div >
     )

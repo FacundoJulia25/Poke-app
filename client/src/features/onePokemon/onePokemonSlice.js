@@ -14,6 +14,7 @@ import axios from "axios";
 const getOnePokemon = createAsyncThunk('pokemons/getOnePokemon',(name)=>{
     return axios.get(`http://localhost:3001/pokemons?name=${name}`)
         .then(response=>response.data)
+        .catch(e=>e.message)
 })
 
 

@@ -1,0 +1,22 @@
+.pkNotFound{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../assets/PkNotFound.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.pkNotFound h1 {
+    background-color: rgba(240, 255, 255, 0.671);
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 4rem;
+}
+.pkNotFound h2 {
+    background-color: rgba(240, 255, 255, 0.671);
+    margin: auto;
+    margin-top: 0;
+    font-size: 4rem;
+}

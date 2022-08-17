@@ -1,11 +1,88 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-.home-container {
-    width: 90vw;
-    height: 100vh;
+
+/** --------------------- Loading ------------------------------- */
+.loadingContainer {
+    position: relative;
+}
+
+.homeLoading {
+    margin: auto;
+    width: auto;
+    height: auto;
+    min-width: 400px;
+    min-height: 300px;
+}
+
+/** ------------------------ Selectores ------------------------------------- */
+
+.selectores {
+
+    background-color: azure;
     display: flex;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.selectores label{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-right:25px ;
+}
+
+.selectores select {
+    display: inline-block;
+    margin-right:25px ;
+    width: 120px;
+    height: 30px;
+}
+/** -------------------------------------paginado ------------------------------------- */
+
+.pages {
+    display: flex;
+    background-color: white;
+    margin-bottom: 20px;
+    margin: auto;
+    width: 600px;
+    height: 90px;
+}
+
+.pages h2 {
+    margin: auto;
+}
+
+.pages .next {
+    cursor: pointer;
+    color: aqua;
+    margin: auto;
+}
+
+.pages .prev {
+    cursor: pointer;
+    color: aqua;
+    margin: auto;
+}
+
+.pages .next :hover {
+    color: rgb(118, 96, 245);
+}
+
+/** ----------------------------------- Home ------------------------------------ */
+.home-container {
+    background-image: linear-gradient(rgba(25, 69, 71, 0.39), rgba(188, 247, 154, 0.8)), url('https://pbs.twimg.com/media/DQum78SUMAIqYzS.jpg');
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    justify-content: center;
     flex-direction: column;
     margin: auto;
-};
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative
+}
+
+;

@@ -1,6 +1,7 @@
 import { Route } from 'react-router-dom';
 import './App.css';
 import CreatePokemon from './components/CreatePokemon/CreatePokemon';
+import Error404 from './components/error404/Error404';
 import Home from './components/Home/Home';
 import HomeAux from './components/Home/HomeAux';
 import Landing from './components/Land/Landing';

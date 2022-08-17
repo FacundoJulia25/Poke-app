@@ -47,6 +47,24 @@ export const pokemonsSlice = createSlice({
             } else if (action.payload == 'descendente') {
                 state.filteredPokemons.sort((a, b) => b.attack - a.attack)
                 console.log(state.pokemons);
+            } else if (action.payload === 'az') {
+                state.filteredPokemons.sort((a, b) => {
+                    if (b.name > a.name) {
+                        return -1;
+                    }
+                    if (b.name < a.name) {
+                        return 1;
+                    }
+                })
+            } else if (action.payload === 'za') {
+                state.filteredPokemons.sort((a, b) => {
+                    if (a.name > b.name) {
+                        return -1;
+                    }
+                    if (a.name < b.name) {
+                        return 1;
+                    }
+                })
             }
         },
         filterBy: (state, action) => {

@@ -1,6 +1,44 @@
 .Landing{
+    position: absolute;
     background-image: url('https://images7.alphacoders.com/592/592678.jpg');
     background-size: cover;
     min-width: 100vw;
     min-height: 100vh;
+}
+.divWelcome{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    margin: 45vh auto;
+    position: relative;
+    background-color: rgba(250, 235, 215, 0.795);
+    border-radius: 30px;
+    background-size: cover;
+}
+.welcome{
+
+    font-family: 'FjallaOne', sans-serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+    text-shadow: rgba(255, 136, 8, 0.587) 6px 6px 6px;
+    text-align: center;
+    background-size:200px 30px;
+}
+.goHome{
+    border-radius: 10px;
+    height: 70px;
+    width: 250px;
+    font-size: 3rem;
+    margin: 25px auto;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(232, 106, 60, 0.726);
+}
+.goHome:hover{
+    height: 75px;
+    width: 280px;
+    font-size: 3.4rem;
+    background-color: rgb(237, 86, 31);
 }

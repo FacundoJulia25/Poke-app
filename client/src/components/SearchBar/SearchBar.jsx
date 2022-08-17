@@ -12,20 +12,22 @@ function SearchBar() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+        <Link to={`/pokemons/search/${name.toLowerCase()}`}></Link>
     };
 
     return (
             <div className="searchBar">
+                <h3 style={{color: 'rgb(148, 30, 30)', fontWeight: '1000', paddingRight:'20px', margin:'auto', fontSize: '40px'}}>Search</h3>
                 <form onSubmit={(e) => handleSubmit(e)}>
-                    <h3>Search</h3>
-                    <input
+                    <input className="inputSearchBar"
                         onChange={(e) => handleChange(e)}
                         type="text"
-                        placeholder="ej Makuhita..."
+                        placeholder="   ej Makuhita..."
+                        minLength='3'
+                        required
                     />
                     <Link to={`/pokemons/search/${name.toLowerCase()}`}>
-                        <button type="submit">
+                        <button className="btnSearchBar" type="submit">
                             🔎
                         </button>
                     </Link>
@@ -33,5 +35,4 @@ function SearchBar() {
             </div>
     );
 }
-
 export default SearchBar;
