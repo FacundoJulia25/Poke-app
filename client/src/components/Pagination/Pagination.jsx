@@ -11,7 +11,7 @@ const Pagination = (props) => {
                 <h1 className='h1Pokemons' style={{color:"white"}}>-  HOME  -</h1>
                 <div className="paginationPokemons">{pokemones}</div>
                 <div className='pages'>
-                    <h3 className='prev'> </h3>
+                    <h3 className='prev'>     </h3>
                     <h2>Pag: {props.currentPage} de: {Math.ceil(props.totalPokemons / 12)}</h2>
                     <h3 className='next' onClick={props.nextHandler} > Next </h3>
                 </div>

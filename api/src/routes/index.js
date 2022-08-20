@@ -67,74 +67,7 @@ router.post('/pokemons', async (req, res) => {
         res.status(404).send('Hubo algun error en la creación del pokemon')
     }
 })
-// router.post('/pokemons', async (req, res) => {
-//     const { 
-//         id,
-//         name,
-//         life_points,
-//         attack,
-//         defense,
-//         speed,
-//         height,
-//         weight,
-//         // special_attack,
-//         // special_defense,
-//         // hp,
-//         // img,
-//         // types 
-//     }= req.body
-
-//     Pokemon.create({
-//         id,
-//         name,
-//         life_points,
-//         attack,
-//         defense,
-//         speed,
-//         height,
-//         weight,
-//         // special_attack,
-//         // special_defense,
-//         // img
-//     }).then(
-//         res.status(200).send("ok")
-//     )
-//         // .then(pokemon => {
-//         //     pokemon.addTypes(types)
-//         //         .then(() => {
-//         //             return res.send('ok')
-//         //         })
-//         // })
-
-// })
-
-// router.get('/pokemons', async (req, res)=>{  
-//     await axios.get("https://pokeapi.co/api/v2/pokemon")
-//     .then(info=>res.json(info.data.results))
-//     .catch(e=>console.log(e))
-// })
-// router.get('/pokemons/:idPokemon',async (req, res)=>{
-//     const id = req.params.idPokemon
-
-// })
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 
 
 module.exports = router;
 
-
-// Requerimientos mínimos
-// A continuación se detallaran los requerimientos mínimos para la aprobación del proyecto individial. Aquellos que deseen agregar más funcionalidades podrán hacerlo. En cuanto al diseño visual no va a haber wireframes ni prototipos prefijados sino que tendrán libertad de hacerlo a su gusto pero tienen que aplicar los conocimientos de estilos vistos en el curso para que quede agradable a la vista.
-
-
-// {
-//     "name":"facu",
-//     "life_points":"200",
-//     "attack":"200", 
-//     "defense":"200", 
-//     "speed":"40", 
-//     "height":"20", 
-//     "weight":"20", 
-//     "types":["1","2"]
-// }

@@ -19,6 +19,7 @@ function App() {
       <Route exact path={`/pokemons/search/:name`} render={() => <SearchPage />} />
       <Route exact path='/createPokemon' render={() => <CreatePokemon />} />
       <Route exact path='/homeAux' render={() =>  <HomeAux /> } />
+      {/* <Route path='*'  render={()=><Error404/>}/> */}
     </div>
   );
 }

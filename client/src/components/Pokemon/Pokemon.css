@@ -7,20 +7,15 @@
     box-sizing: border-box;
     border-radius: 5%;
 }
-/* pokemon, planta, agua, electrico, fairy, normal, ground */
- /* fire: https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg?w=2000 */
- /* planta: https://images.pexels.com/photos/122429/leaf-nature-green-spring-122429.jpeg?cs=srgb&dl=pexels-pixabay-122429.jpg&fm=jpg */
-
     .cardImage {
     position: relative;
     border-radius: 5% 5% 0 0;
-    background-image: url('https://a-static.besthdwallpaper.com/sol-en-la-superficie-del-agua-papel-pintado-2560x1600-12526_7.jpg');
+    background-image: url('https://static.vecteezy.com/system/resources/previews/001/630/865/non_2x/elegant-silver-metallic-background-free-vector.jpg');
     background-size: cover;
     filter:brightness(1.1);
 }
 .fire{
     background-image: url('https://img.freepik.com/vector-gratis/diseno-fondo-fuego_1189-229.jpg?w=2000');
-
 }
 .bug{
     background-image: url('https://images.pexels.com/photos/122429/leaf-nature-green-spring-122429.jpeg?cs=srgb&dl=pexels-pixabay-122429.jpg&fm=jpg');
@@ -34,8 +29,8 @@
 .flying{
     background-image: url( 'https://img.freepik.com/premium-vector/doodle-wind-gust-isolated-white-background-hand-drawn-vector-illustration_36380-803.jpg?w=2000');
 }
-.normal{
-    background-image: url('https://static.vecteezy.com/system/resources/previews/001/630/865/non_2x/elegant-silver-metallic-background-free-vector.jpg');
+.water{
+    background-image: url('https://a-static.besthdwallpaper.com/sol-en-la-superficie-del-agua-papel-pintado-2560x1600-12526_7.jpg');    
 }
 .electric{
     background-image: url('https://i.ytimg.com/vi/GRHONDlbclM/maxresdefault.jpg');

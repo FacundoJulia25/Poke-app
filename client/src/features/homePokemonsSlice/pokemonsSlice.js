@@ -70,7 +70,16 @@ export const pokemonsSlice = createSlice({
         filterBy: (state, action) => {
             state.filteredPokemons = state.pokemons //aqui reseteamos
             if (action.payload.type !== '') {
-                state.filteredPokemons = state.pokemons.filter(p => p.types.toString().toLowerCase().includes(action.payload.type.toLowerCase()))
+                if(action.payload === 'fire'){
+                    let filteredPokemons1 = state.pokemons
+                    let filteredPokemons2 = filteredPokemons1.filter(p=>p.types.toString().toLowerCase().includes('flying'))
+                    let filteredPokemons3 = state.pokemons.filter(p=>p.types.toString().toLowerCase().includes('fire'))
+                    state.filteredPokemons = filteredPokemons2.concat(filteredPokemons3)
+
+                    // .concat(filteredPokemons2.filter(p=>p.types.toString().toLowerCase().includes('flying')))
+                }else{
+                    state.filteredPokemons = state.pokemons.filter(p => p.types.toString().toLowerCase().includes(action.payload.type.toLowerCase()))
+                }
             }
             if (action.payload.created !== '') {
                 if (action.payload.created === 'dB') {

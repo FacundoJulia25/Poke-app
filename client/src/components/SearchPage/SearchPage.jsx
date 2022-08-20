@@ -7,7 +7,7 @@ import { clearSearchedPokemon, getNamePokemon } from '../../features/onePokemon/
 import NavBar from '../NavBar/NavBar';
 
 function SearchPage() {
-    let pokemon = useSelector(state => state.onePokemon)
+    let pokemon  = useSelector(state => state.onePokemon)
     let dispatch = useDispatch()
     let { name } = useParams()
 
@@ -19,7 +19,7 @@ function SearchPage() {
         dispatch(clearSearchedPokemon())
         dispatch(getNamePokemon(name))
     }, [name])
-
+    
     if (pokemon.pokemon.name || typeof pokemon.pokemon === 'string') {
         if (typeof pokemon.pokemon === 'string') {
             return (

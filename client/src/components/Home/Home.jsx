@@ -63,7 +63,6 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(sortAsc(sortBy))
-
   }, [sortBy])
 
   useEffect(() => {
@@ -116,7 +115,6 @@ export default function Home() {
         <div className="home-pokemons">
           <Pagination totalPokemons={filteredPokemons.length} currentPage={currentPage + 1} pokemones={pagePokemons} prevHandler={prevHandler} nextHandler={nextHandler} />
         </div>
-
       </div>
     )
   } else {

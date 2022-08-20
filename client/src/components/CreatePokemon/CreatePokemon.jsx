@@ -107,7 +107,7 @@ function CreatePokemon() {
             setPokemon(pokemon)
             axios.post('http://localhost:3001/pokemons', pokemon)
                 .then(data => {
-                    console.log(data)
+                    alert('se creó el pokemon', JSON.stringify(data))
                     submitParaReset.current.reset()
                 })
                 .catch(e => alert('Hubo algún error'))
