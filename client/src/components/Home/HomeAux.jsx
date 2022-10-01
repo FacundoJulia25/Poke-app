@@ -4,13 +4,14 @@ import Pagination from '../Pagination/Pagination'
 import Pokemon from '../Pokemon/Pokemon'
 import SearchBar from '../SearchBar/SearchBar'
 import './Home.css'
+
 function HomeAux() {
     return (
         <div className='home-container' >
             < NavBar />
-            <div className="selectores">
+            <div class="form-floating">
                 <label htmlFor="sort-select">Sort By:</label>
-                <select>
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                     <option value={'descendente'}>▽ - Descendent</option>)
                     <option value='ascendente'>△ - Ascendent</option>
                     <option value={''}>Todos</option>

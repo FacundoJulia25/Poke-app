@@ -93,7 +93,7 @@ export default function Home() {
         <NavBar />
         <div className="selectores">
           <label htmlFor="sort-select">Sort By:</label>
-          <select value={sortBy} onChange={(e) => handleSort(e)}>
+          <select  class="form-select" value={sortBy} onChange={(e) => handleSort(e)}>
             <option value={'descendente'}>▽ - Descendent</option>
             <option value={'ascendente'}>△ - Ascendent</option>
             <option value={'za'}>Z - A</option>

@@ -7,11 +7,13 @@ export default function Landing(params) {
         <div className="Landing">
             <div className="divWelcome">
                 <h1 className="welcome">¡Welcome to my WebSite!</h1>
-                <Link style={{textDecoration:'none'}} to={"/home"}>
-                    <h2 className="goHome">
-                        Go Home
-                    </h2>
-                </Link>
+                <div>
+                    <Link style={{ display:'inline-block', textDecoration:'none'}} to={"/home"}>
+                        <h2 className="goHome">
+                            Go Home
+                        </h2>
+                    </Link>
+                </div>
             </div>
         </div>
     );

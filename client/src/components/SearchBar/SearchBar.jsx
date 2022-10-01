@@ -17,7 +17,7 @@ function SearchBar() {
 
     return (
             <div className="searchBar">
-                <h3 style={{color: 'rgb(148, 30, 30)', fontWeight: '1000', paddingRight:'20px', margin:'auto', fontSize: '40px'}}>Search</h3>
+                <h3 style={{color: 'white', fontWeight: '600', paddingRight:'20px', margin:'auto', fontSize: '20px'}}>Search</h3>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <input className="inputSearchBar"
                         onChange={(e) => handleChange(e)}

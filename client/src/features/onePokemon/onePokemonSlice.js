@@ -9,27 +9,19 @@ import axios from "axios";
 
 //PASO 1 : Crear un async thunk que va a ser nuestra función para
 //realizar el llamado a la api.
-
-
 const getOnePokemon = createAsyncThunk('pokemons/getOnePokemon',(name)=>{
     return axios.get(`http://localhost:3001/pokemons?name=${name}`)
         .then(response=>response.data)
         .catch(e=>e.message)
 })
-
-
 //PASO 2: Definimos el initial state con un loading,
 //un array con el state y un handleError.
-
-
 const initialState = {
     loading:false,
     pokemon:{},
     error:'',
 }
-
-//Paso 3 creamos nuestro slice .
-
+//Paso 3 creamos nuestro slice 
 
 //añadimos el extra reducer
 //usando el builder agregaremos casos
@@ -56,11 +48,9 @@ export const onePokemonSlice = createSlice({
             builder.addCase(getOnePokemon.rejected, (state, action)=>{
                 state.pokemon = {}
                 state.error=action.error.message
-            })            
-            
+            })
         }
         })
-
 export const clearSearchedPokemon = onePokemonSlice.actions.clearSearchedPokemon
 export const getNamePokemon = getOnePokemon
 export default onePokemonSlice.reducer // este ".reducer" permite exportar solo los reducers
